@@ -1,0 +1,6 @@
+let StartDate = ago(31);
+OfficeActivity
+| where TimeGenerated > StartDate
+| summarize count() by OfficeWorkload, bin(TimeGenerated, 1d)
+| sort by TimeGenerated asc 
+| render timechart

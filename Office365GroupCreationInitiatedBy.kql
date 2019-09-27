@@ -1,0 +1,10 @@
+let StartDate = ago(7d);
+let OperationNameMatch = "Add group";
+let O365GroupNameFilter = "<nameOfGroup>";
+AuditLogs
+| where TimeGenerated > StartDate
+| where OperationName contains OperationNameMatch
+| extend flatten = tostring(TargetResources)
+| where flatten contains "Unified"
+| where flatten contains O365GroupNameFilter
+| project InitiatedBy 
