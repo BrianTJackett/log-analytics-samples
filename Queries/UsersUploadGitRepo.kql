@@ -1,0 +1,8 @@
+let StartDate = ago(31d);
+let OperationFilter = "FileSyncUploadedFull";
+let FilePathMatch = ".git";
+OfficeActivity
+| where TimeGenerated > StartDate
+| where Operation == OperationFilter
+| where OfficeObjectId contains FilePathMatch
+| distinct UserId
