@@ -4,7 +4,9 @@ let O365GroupNameFilter = "<nameOfGroup>";
 AuditLogs
 | where TimeGenerated > StartDate
 | where OperationName contains OperationNameMatch
-| extend flatten = tostring(TargetResources)
-| where flatten contains "Unified"
-| where flatten contains O365GroupNameFilter
-| project InitiatedBy 
+| where TargetResources has "Unified"
+| where TargetResources has O365GroupNameFilter
+| project InitiatedBy
+| mvexpand InitiatedBy
+| evaluate bag_unpack(InitiatedBy)
+| evaluate bag_unpack(user)

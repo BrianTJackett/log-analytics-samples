@@ -1,8 +1,7 @@
 let StartDate = ago(7d);
 let OperationNameFilter = "Add group";
-let AzureADGroupNameFilter = "<nameOfGroup>"
+let AzureADGroupNameMatch = "<nameOfGroup>";
 AuditLogs
 | where TimeGenerated > StartDate
 | where OperationName contains OperationNameFilter
-| extend flatten = tostring(TargetResources)
-| where flatten contains AzureADGroupNameFilter
+| where TargetResources has AzureADGroupNameMatch
