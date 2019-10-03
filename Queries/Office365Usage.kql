@@ -1,4 +1,4 @@
-let StartDate = ago(31);
+let StartDate = ago(31d);
 OfficeActivity
 | where TimeGenerated > StartDate
 | summarize count() by OfficeWorkload, bin(TimeGenerated, 1d)
