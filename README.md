@@ -14,6 +14,7 @@ Sample KQL queries for Azure Log Analytics against Office 365 audit logs and Azu
 - [Azure AD group creation](./Queries/AzureADGroupCreation.kql)
 - [Office 365 group creation initiated by](./Queries/Office365GroupCreationInitiatedBy.kql)
 - [SharePoint Online Site Creation](./Queries/SPOSiteCreation.kql)
+- [SharePoint Online Sharing Content](./Queries/SPOSharing.kql)
 - [Users uploading Git repos](./Queries/UsersUploadGitRepo.kql)
 
 **Note** Recommend installing [Azure Log Analytics / Kusto Syntax Highlighting extension](
