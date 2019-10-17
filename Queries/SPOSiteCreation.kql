@@ -1,0 +1,10 @@
+let StartDate = ago(90d);
+OfficeActivity
+| where TimeGenerated > StartDate
+| where OfficeWorkload == "SharePoint"
+| where Operation == "SiteCollectionCreated"
+| extend source = parse_xml(Event_Data)
+| evaluate bag_unpack(source)
+| project TimeGenerated, OfficeObjectId, UserId,  SiteCreationSource = iff(SiteCreationSource == "", "--Unknown--", SiteCreationSource)
+| summarize count() by bin(TimeGenerated, 1d), SiteCreationSource
+| render barchart kind=default
