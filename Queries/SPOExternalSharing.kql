@@ -1,0 +1,16 @@
+let SiteUrl = dynamic(['<siteUrl>']);
+let StartDate = ago(7d);
+let OperationsToMonitor = dynamic(['AccessInvitationAccepted',
+                                    'AccessInvitationCreated',
+                                    'AccessInvitationExpired',
+                                    'AccessInvitationRevoked',
+                                    'AccessInvitationUpdated',
+                                    'SharedLinkCreated',
+                                    'SharedLinkDisabled',
+                                    'SharingInvitationAccepted',
+                                    'SharingRevoked',
+                                    'SharingSet']);
+OfficeActivity
+| where TimeGenerated > StartDate
+| where Site_Url in~ (SiteUrl)
+| where Operation in (OperationsToMonitor)
