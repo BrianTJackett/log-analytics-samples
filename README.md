@@ -9,12 +9,12 @@ Sample KQL queries for Azure Log Analytics against Office 365 audit logs and Azu
 
 ## KQL queries
 
-- [Office 365 usage](.\Queries\Office365Usage.kql)
-- [OneDrive user uploads](.\Queries\OneDriveUserUploads.kql)
-- [Azure AD group creation](.\Queries\AzureADGroupCreation.kql)
-- [Office 365 group creation initiated by](.\Queries\Office365GroupCreationInitiatedBy.kql)
-- [SharePoint Online Site Creation](.\Queries\SPOSiteCreation.kql)
-- [Users uploading Git repos](.\Queries\UsersUploadGitRepo.kql)
+- [Office 365 usage](./Queries/Office365Usage.kql)
+- [OneDrive user uploads](./Queries/OneDriveUserUploads.kql)
+- [Azure AD group creation](./Queries/AzureADGroupCreation.kql)
+- [Office 365 group creation initiated by](./Queries/Office365GroupCreationInitiatedBy.kql)
+- [SharePoint Online Site Creation](./Queries/SPOSiteCreation.kql)
+- [Users uploading Git repos](./Queries/UsersUploadGitRepo.kql)
 
 **Note** Recommend installing [Azure Log Analytics / Kusto Syntax Highlighting extension](
 https://marketplace.visualstudio.com/items?itemName=josin.kusto-syntax-highlighting) for Visual Studio Code to easily view KQL queries.
