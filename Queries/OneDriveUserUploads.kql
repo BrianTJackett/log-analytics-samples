@@ -2,7 +2,7 @@ let StartDate = ago(30d);
 let usersToMonitor = dynamic(['user1@contoso.com', 'user2@contoso.com', 'user3@contoso.com']);
 let OperationFilter = "FileSyncUploadedFull";
 OfficeActivity
-| where UserId in (usersToMonitor)
+| where UserId in~ (usersToMonitor)
 | where Operation == OperationFilter
 | where TimeGenerated > StartDate
 | make-series count(Operation) default=0 on TimeGenerated from StartDate to now() step 1d by UserId 
