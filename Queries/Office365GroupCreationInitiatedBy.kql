@@ -6,7 +6,10 @@ AuditLogs
 | where OperationName contains OperationNameMatch
 | where TargetResources has "Unified"
 | where TargetResources has O365GroupNameFilter
-| project InitiatedBy
-| mvexpand InitiatedBy
+| project InitiatedBy, TargetResources
+| mvexpand InitiatedBy, TargetResources
 | evaluate bag_unpack(InitiatedBy)
 | evaluate bag_unpack(user)
+| project-rename creationSourcedisplayName = displayName, userId = id
+| evaluate bag_unpack(TargetResources)
+| project-rename groupId = id, groupDisplayName = displayName
